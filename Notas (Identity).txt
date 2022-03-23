@@ -1,0 +1,16 @@
+O controlador deve ter o mínimo de responsabilidade possível no âmbito de implementação de lógica.
+É uma boa prática não expor o modelo de nossas entidades diretamente no controlador.
+O processo de refatoração deve ser feito o quanto antes para evitar que os problemas de um código mal estruturado se acumulem.
+A fim de isolar a lógica que implementamos, criar services é uma boa alternativa.
+Devemos optar por parâmetros objetivos indicando se determinada operação foi realizada com sucesso ou não, pois parâmetros subjetivos podem ser confusos.
+
+problemas que o Identity nos ajuda a resolver com relação a autenticação e autorização de usuários na nossa aplicação.
+-Com o Identity, conseguimos implementar critérios adicionais de segurança para a nossa aplicação.
+-O Identity provê uma implementação para armazenar senhas/credenciais de maneira segura.
+
+UserManager provê diversos métodos voltados para a parte de gerenciamento de usuário, inclusive cadastro.
+
+O Identity é um sistema para a parte de criar, ler, atualizar e remover contas de usuários.
+Podemos integrar o Identity com o Entity para armazenar os dados dos usuários.
+Podemos configurar o Identity utilizando a nossa classe Startup e DbContext.
+O Identity é configurável para se adequar às necessidades da pessoa que está desenvolvendo.

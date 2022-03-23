@@ -1,0 +1,68 @@
+{
+    "Titulo": "O senhor dos aneis",
+    "Genero": "Aventura",
+    "Diretor": "Peter Jackson",
+    "Duracao": "180" 
+}
+
+pode falar que ele é um campo de required, campo que é obrigatório da passar, também pode o nome do diretor é um campo obrigatório
+
+validar
+colocar required, vai tornar que nosso modelo seja obrigatorio
+
+Como enviar requisições para a API.
+Como preparar a API para receber requisições.
+A finalidade do verbo POST.
+Como criar um recurso no sistema.
+Como adicionar validações nos parâmetros enviados.
+
+Como recuperar informações da API.
+A finalidade do verbo GET.
+Como enviar parâmetros através da URL de requisição.
+Como filtrar recursos para retornar para o usuário.
+Como devemos retornar as informações para o usuário com base no tipo de requisição.
+
+Como abrir uma conexão entre a API e o banco de dados.
+Como gerar migrations e mapear nosso objeto no banco de dados.
+Como utilizar o DbContext para fazer operações no banco.
+Como atualizar um recurso no sistema com o verbo PUT.
+Como deletar um recurso no sistema com o verbo DELETE.
+
+Como tornar o nosso código mais semântico com a utilização de DTO's.
+Como separar o modelo do banco das requisições recebidas e respostas enviadas.
+Como gerar parâmetros de resposta em tempo de execução.
+Como instalar e configurar o AutoMapper.
+Como mapear recursos de maneira automatizada com o AutoMapper.
+
+_________________________________________________________
+
+conceito de “laziness” para carregar propriedades diretamente de nossas entidades.
+Devemos utilizar a palavra reservada virtual em nossas propriedades e definir em nosso startup que usaremos o carregamento através do método UseLazyLoadingProxies().
+
+Que relacionamento 1:1 é usado quando queremos estabelecer relacionamentos em que uma entidade possui exatamente uma outra como par.
+Que para criar relacionamentos 1:1 entre entidades precisamos alterar nossas properties e definir nosso DbContext.
+Que utilizamos o ModelBuilder para explicitar como o relacionamento será estabelecido.
+Que Lazy Properties são usadas quando queremos carregar informações de uma entidade que é propriedade de outra.
+
+
+Que um relacionamento 1:n estabelece uma relação entre uma entidade e muitas outras.
+Que relacionamentos 1:n com o Entity podem ser gerados de maneira similar ao 1:1.
+Que problemas de loops podem ser resolvidos com o AutoMapper em conjunto com o método CreateMap().
+A alterar o modo de deleção com o método OnModelCreating().
+Que a deleção em cascata remove a entidade e suas dependências.
+Como tornar um atributo de chave estrangeira opcional ou não através do método isRequired().
+
+
+relacionamento muitos para muitos pode ser “quebrado” e entendido como dois relacionamentos um para muitos. Além disso, se não houvesse necessidade arquitetural e semântica de criarmos um relacionamento nomeado, não precisaríamos fazer toda esta definição manualmente.
+
+como nosso DTO independe do modelo do banco de dados, conseguimos manusear de forma simples os dados que serão trafegados entre o usuário e a aplicação.
+
+Que um relacionamento de muitos para muitos é usado para relacionar muitos de uma entidade com muitos de outra entidade...
+Como gerar um relacionamento de muitos para muitos com o Entity.
+Que para quebrar um relacionamento de muitos para muitos em dois relacionamentos de um para muitos precisamos criar um modelo para representar o relacionamento.
+Utilizar o AutoMapper para calcular informações a partir de entidades diferentes em tempo de execução.
+
+Que query parameters são enviados através da URL a fim de tornar o GET mais criterioso.
+Como receber os parâmetros através do [FromQuery].
+Como realizar consultas através do encadeamento de métodos.
+Como realizar consultas com LINQ.
