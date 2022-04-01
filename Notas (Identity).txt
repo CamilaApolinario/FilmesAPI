@@ -14,3 +14,18 @@ O Identity é um sistema para a parte de criar, ler, atualizar e remover contas 
 Podemos integrar o Identity com o Entity para armazenar os dados dos usuários.
 Podemos configurar o Identity utilizando a nossa classe Startup e DbContext.
 O Identity é configurável para se adequar às necessidades da pessoa que está desenvolvendo.
+
+Para efetuar tanto o login quanto o logout podemos usar a classe SignInManager;
+Tokens são usados para identificar usuários se comunicando com aplicações;
+Podemos definir um tempo de expiração para tokens;
+Conseguimos trafegar dados dentro de Fluent.Results com o método WithSuccess().
+
+------------------28/03/2022------------------------
+
+Podemos bloquear o login de usuários sem contas confirmadas através do Identity.
+Podemos gerar um código de ativação ao cadastrar a conta utilizando a classe UserManager.
+Para gerar o fluxo de confirmar a conta de um usuário, usamos o Identity e a classe UserManager.
+Trafegamos informações em nossos Fluent.Results.
+
+o método ConfirmEmailAsync(IdentityUser e string, sendo a string o código de ativação) 
+é capaz de confirmar a conta de um usuário através do campo de e-mail.

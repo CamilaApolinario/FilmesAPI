@@ -17,11 +17,11 @@ namespace UsuariosApi.Controllers
         }
 
         [HttpPost]
-        public IActionResult LogaUsuario(LoginRequest request)
+        public IActionResult LogaUsuario(LoginRequest request) // requisição para fazer um login
         {
             Result resultado = _loginService.LogaUsuario(request);
-            if (resultado.IsFailed) return Unauthorized(resultado.Errors);
-            return Ok(resultado.Successes);
+            if (resultado.IsFailed) return Unauthorized(resultado.Errors); // se falhar, o request não terá autorização para fazer o login
+            return Ok(resultado.Successes); // se o resultado não falhou retorna com seus sucessos, se falhar retorna Unauthorized
         }
 
     }
