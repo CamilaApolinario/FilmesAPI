@@ -42,7 +42,7 @@ namespace UsuariosApi.Services
                 var encodedCode = HttpUtility.UrlEncode(code);
 
                 _emailService.EnviarEmail(new [] { usuarioIdentity.Email}, 
-                    "Link de Aticação", usuarioIdentity.Id, encodedCode); //logica para enviar email para o usuario cadastrado, lista de emails, como id, e o codigo de ativação
+                    "Link de Ativação", usuarioIdentity.Id, encodedCode); //logica para enviar email para o usuario cadastrado, lista de emails, como id, e o codigo de ativação
                 
                 return Result.Ok().WithSuccess(code);
             }

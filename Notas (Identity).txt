@@ -29,3 +29,10 @@ Trafegamos informações em nossos Fluent.Results.
 
 o método ConfirmEmailAsync(IdentityUser e string, sendo a string o código de ativação) 
 é capaz de confirmar a conta de um usuário através do campo de e-mail.
+
+-----------------30/03/2022----------------------
+
+Podemos enviar e-mails para os usuários através do .NET.
+Conseguimos abrir uma conexão com um servidor de e-mails através do MailKit.
+Podemos gerar uma mensagem de e-mail através do MimeKit.
+Carregamos informações de configuração em nosso código através da interface IConfiguration.
