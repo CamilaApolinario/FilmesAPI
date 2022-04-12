@@ -23,6 +23,20 @@ namespace UsuariosApi.Controllers
             if (resultado.IsFailed) return Unauthorized(resultado.Errors); // se falhar, o request não terá autorização para fazer o login
             return Ok(resultado.Successes); // se o resultado não falhou retorna com seus sucessos, se falhar retorna Unauthorized
         }
+        [HttpPost("/solicita-reset")]
+        public IActionResult SolicitaResetSenhaUsuario(SolicitaResetRequest request)
+        {
+            Result resultado = _loginService.SolicitaResetSenhaUsuario(request);//recebe a solicitação de redefinição de senha
+            if(resultado.IsFailed) return Unauthorized(resultado.Errors); // não autorizado e os erros 
+            return Ok(resultado.Successes);
+        }
 
+        [HttpPost("/efetua-reset")]
+        public IActionResult ResetaSenhaUsuario(EfetuaResetRequest request)// efetua a redefinição
+        {
+            Result resultado = _loginService.ResetaSenhaUsuario(request);
+            if(resultado.IsFailed) return Unauthorized(resultado.Errors); 
+            return Ok(resultado.Successes);
+        }
     }
 }

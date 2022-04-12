@@ -14,25 +14,26 @@ namespace UsuariosApi.Services
     public class CadastroService
     {
         private IMapper _mapper;
-        private UserManager<IdentityUser<int>> _userManager;
+        private UserManager<CustomIdentityUser> _userManager;
         private EmailService _emailService;
-
-        public CadastroService(IMapper mapper, UserManager<IdentityUser<int>> userManager, EmailService emailService)
+        
+        public CadastroService(IMapper mapper, UserManager<CustomIdentityUser> userManager, EmailService emailService)
         {
             _mapper = mapper;
             _userManager = userManager;
             _emailService = emailService;
+            
         }
 
         public async Task<Result> CadastraUsuario(CreateUsuarioDto createDto)
         {
             Usuario usuario = _mapper.Map<Usuario>(createDto); //converte um CreateUsuarioDto para nosso modelo de Usuario, usando AutoMapper
             
-            IdentityUser<int> usuarioIdentity = _mapper.Map<IdentityUser<int>>(usuario); //converte o Usuario para um IdentityUser, usando o AutoMapper
+            CustomIdentityUser usuarioIdentity = _mapper.Map<CustomIdentityUser>(usuario); //converte o Usuario para um IdentityUser, usando o AutoMapper
             
             IdentityResult resultadoIdentity = await _userManager
                 .CreateAsync(usuarioIdentity, createDto.Password); // cadastra no banco o usuarioIdentity, usando um gerenciador de usuarios, UserManager. Quando executa essa tarefa de criação assincrona, ela executa uma tarefa com um resultado de sucesso ou não. 
-            
+          
             if (resultadoIdentity.Succeeded) 
             {
                 var code = _userManager

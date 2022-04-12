@@ -10,15 +10,18 @@ namespace UsuariosApi.Services
 {
     public class TokenService
     {
-        public Token CreateToken(IdentityUser<int> usuario) // cria um modelo de token, e qual é o usuario que está recebendo
+        public Token CreateToken(CustomIdentityUser usuario, string role) // cria um modelo de token, e qual é o usuario que está recebendo
         {
             Claim[] direitosUsuario = new Claim[] //o que esse usuario exige//seus direitos
             {
                 new Claim("username", usuario.UserName),
                 new Claim("id", usuario.Id.ToString()),
+                new Claim(ClaimTypes.Role, role),//adiciona uma role ao usuario
+                new Claim(ClaimTypes.DateOfBirth, usuario.DataNascimento.ToString())
             };
 
-            var chave = new SymmetricSecurityKey( // chave para criptografar o token
+            // chave para criptografar o token
+            var chave = new SymmetricSecurityKey(                   
                 Encoding.UTF8.GetBytes("0asdjas09djsa09djasdjsadajsd09asjd09sajcnzxn")
                 );
             var credenciais = new SigningCredentials(chave, SecurityAlgorithms.HmacSha256); // gera as credenciais apartir da chave e de um algoritimo de criptografia
